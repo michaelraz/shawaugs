@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Machine.Specifications;
+using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
 using nothinbutdotnetstore.web.core;
-using developwithpassion.specifications.extensions;
 
 namespace nothinbutdotnetstore.specs
 {
@@ -27,7 +27,6 @@ namespace nothinbutdotnetstore.specs
 
                     request = fake.an<IContainRequestInformation>();
                     the_command_that_can_process_the_request.setup(x => x.can_process(request)).Return(true);
-
 
                     depends.on<IEnumerable<IProcessOneSpecificRequest>>(all_commands);
                 };
@@ -56,7 +55,7 @@ namespace nothinbutdotnetstore.specs
                 Because b = () =>
                     result = sut.get_command_for(request);
 
-                It should_return_the_special_case = () =>
+                It should_return_the_null_command = () =>
                     result.ShouldEqual(the_null_command);
 
                 static IList<IProcessOneSpecificRequest> all_commands;

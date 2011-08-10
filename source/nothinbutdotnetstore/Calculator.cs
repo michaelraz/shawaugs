@@ -40,10 +40,7 @@ namespace nothinbutdotnetstore
 
         public void shut_off()
         {
-            if(Thread.CurrentPrincipal.IsInRole("awesome"))
-            {
-                is_off = true;
-            }
+            is_off = (Thread.CurrentPrincipal.IsInRole("winning!"));
         }
     }
 }

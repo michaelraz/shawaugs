@@ -8,7 +8,7 @@ using developwithpassion.specifications.extensions;
 namespace nothinbutdotnetstore.specs
 {
     [Subject(typeof(RawHandler))]
-    public class RawHandlerspecs
+    public class RawHandlerSpecs
     {
         public abstract class concern : Observes<IHttpHandler,
                                             RawHandler>
@@ -22,7 +22,7 @@ namespace nothinbutdotnetstore.specs
                 front_controller = depends.on<IProcessWebRequests>();
                 request_mapper = depends.on<ICreateRequestsTheFrontControllerCanProcess>();
 
-                the_request =new object();
+                the_request = fake.an<IContainRequestInformation>();
                 incoming_request = ObjectFactory.create_http_context();
 
                 request_mapper.setup(x => x.map_from(incoming_request)).Return(the_request);
@@ -35,7 +35,7 @@ namespace nothinbutdotnetstore.specs
                 front_controller.received(x => x.process(the_request));
 
             static IProcessWebRequests front_controller;
-            static object the_request;
+            static IContainRequestInformation the_request;
             static HttpContext incoming_request;
             static ICreateRequestsTheFrontControllerCanProcess request_mapper;
         }

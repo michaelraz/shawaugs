@@ -5,8 +5,6 @@ require 'erb'
 require 'configatron'
 require 'albacore'
 
-include Rake::DSL
-
 =begin Supplementary Build Files
 
 build\utils - build utilities

@@ -6,7 +6,7 @@ namespace nothinbutdotnetstore
 {
     public class Calculator
     {
-        readonly IDbConnection connection;
+        IDbConnection connection;
 
         public Calculator(IDbConnection connection)
         {

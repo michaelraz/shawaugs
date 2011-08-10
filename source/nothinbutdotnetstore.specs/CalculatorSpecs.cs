@@ -41,7 +41,10 @@ namespace nothinbutdotnetstore.specs
         {
             Establish c = () =>
             {
-                connection = depends.on<IDbConnection>();                
+                connection = depends.on<IDbConnection>();
+                command = fake.an<IDbCommand>();
+
+                connection.setup(x => x.CreateCommand()).Return(command);
             };
 
             Because b = () =>
@@ -50,10 +53,12 @@ namespace nothinbutdotnetstore.specs
             It should_connect_to_the_database = () =>
                 connection.received(x => x.Open());
 
-            static IDbConnection connection;
+            It should_run_a_query = () =>
+                command.received(x => x.ExecuteNonQuery());
+                
 
-                
-                
+            static IDbConnection connection;
+            static IDbCommand command;
         } 
     }
 }

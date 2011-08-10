@@ -21,8 +21,9 @@ namespace nothinbutdotnetstore.specs
             Establish c = () =>
             {
                 command_that_can_process_request = fake.an<IProcessOneSpecificRequest>();
-                the_request = fake.an<IContainRequestInformation>();
                 command_registry = depends.on<IFindCommandsThatCanProcessRequests>();
+
+                the_request = fake.an<IContainRequestInformation>();
 
                 command_registry.setup(x => x.get_command_for(the_request))
                     .Return(command_that_can_process_request);

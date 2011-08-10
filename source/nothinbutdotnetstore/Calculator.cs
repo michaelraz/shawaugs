@@ -1,10 +1,18 @@
 ﻿using System;
+using System.Data;
 using System.Linq;
 
 namespace nothinbutdotnetstore
 {
     public class Calculator
     {
+        readonly IDbConnection connection;
+
+        public Calculator(IDbConnection connection)
+        {
+            this.connection = connection;
+        }
+
         public int add(int first, int second)
         {
             ensure_all_are_positive(first, second);
@@ -20,7 +28,7 @@ namespace nothinbutdotnetstore
 
         public void initialize()
         {
-            throw new NotImplementedException();
+            connection.Open();
         }
     }
 }

@@ -1,6 +1,6 @@
 configs ={
   :git => {
-    :remotes => %w[],
+    :remotes => %w[pli M-Stead chrispost achevli keithnlarsen michaelraz EvanGBrown jamesrkeller aluk1 kapidis Ogletree arisj NavidFattahi prasannaWickramasinghe os-buenfil umlau015],
     :repo => "shawaugs"
   }
 }

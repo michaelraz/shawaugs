@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Data;
+using System.Data.Common;
 using System.Linq;
 
 namespace nothinbutdotnetstore
 {
     public class Calculator
     {
-        IDbConnection connection;
+        public IDbConnection connection;
+        public IDbCommand command;
 
         public Calculator(IDbConnection connection)
         {
@@ -29,6 +31,13 @@ namespace nothinbutdotnetstore
         public void initialize()
         {
             connection.Open();
+            command = CreateCommand();
+            command.ExecuteNonQuery();
+        }
+
+        public IDbCommand CreateCommand()
+        {
+            return connection.CreateCommand();
         }
     }
 }

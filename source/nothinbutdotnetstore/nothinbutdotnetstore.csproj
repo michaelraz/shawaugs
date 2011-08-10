@@ -85,6 +85,7 @@
     <Compile Include="web\core\IFindCommandsThatCanProcessRequests.cs" />
     <Compile Include="web\core\IProcessAWebRequest.cs" />
     <Compile Include="web\core\IProcessWebRequests.cs" />
+    <Compile Include="web\core\MissingCommandFactory.cs" />
     <Compile Include="web\core\RawHandler.cs" />
     <Compile Include="web\core\ICreateRequestsTheFrontControllerCanProcess.cs" />
   </ItemGroup>

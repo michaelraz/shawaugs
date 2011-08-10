@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Linq;
+using System.Threading;
 
 namespace nothinbutdotnetstore
 {
@@ -39,7 +40,10 @@ namespace nothinbutdotnetstore
 
         public void shut_off()
         {
-            throw new NotImplementedException();
+            if(Thread.CurrentPrincipal.IsInRole("awesome"))
+            {
+                is_off = true;
+            }
         }
     }
 }

@@ -25,8 +25,8 @@ namespace nothinbutdotnetstore.specs
                     all_commands = Enumerable.Range(1, 100).Select(x => fake.an<IProcessOneSpecificRequest>()).ToList();
                     all_commands.Add(the_command_that_can_process_the_request);
 
-                    the_command_that_can_process_the_request.setup(x => x.can_process(request)).Return(true);
                     request = fake.an<IContainRequestInformation>();
+                    the_command_that_can_process_the_request.setup(x => x.can_process(request)).Return(true);
 
 
                     depends.on<IEnumerable<IProcessOneSpecificRequest>>(all_commands);

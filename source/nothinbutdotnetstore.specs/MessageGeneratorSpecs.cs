@@ -16,6 +16,7 @@ namespace nothinbutdotnetstore.specs
             {
                 message = "hello world";
                 depends.on(message);
+                
             };
 
             Because b = () =>

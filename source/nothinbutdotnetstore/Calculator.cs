@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Data.Common;
 using System.Linq;
 
 namespace nothinbutdotnetstore
@@ -8,9 +7,9 @@ namespace nothinbutdotnetstore
     public class Calculator
     {
         public IDbConnection connection;
-        public IDbCommand command;
+        public bool is_off { get; private set; }
 
-        public Calculator(IDbConnection connection)
+        public Calculator(IDbConnection connection,int number,int number2)
         {
             this.connection = connection;
         }
@@ -30,14 +29,17 @@ namespace nothinbutdotnetstore
 
         public void initialize()
         {
-            connection.Open();
-            command = CreateCommand();
-            command.ExecuteNonQuery();
+            using(connection)
+            using(var command = connection.CreateCommand())
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
         }
 
-        public IDbCommand CreateCommand()
+        public void shut_off()
         {
-            return connection.CreateCommand();
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Data;
+using System.Security.Principal;
+using System.Threading;
 using Machine.Specifications;
+using Rhino.Mocks;
 using developwithpassion.specifications.rhinomocks;
 using developwithpassion.specifications.extensions;
 
@@ -42,6 +45,7 @@ namespace nothinbutdotnetstore.specs
             Establish c = () =>
             {
                 connection = depends.on<IDbConnection>();
+                depends.on(3);
                 command = fake.an<IDbCommand>();
 
                 connection.setup(x => x.CreateCommand()).Return(command);
@@ -59,6 +63,24 @@ namespace nothinbutdotnetstore.specs
 
             static IDbConnection connection;
             static IDbCommand command;
+        } 
+
+        public class when_shutting_off_and_they_are_in_the_correct_security_group   : concern
+        {
+            Establish c = () =>
+            {
+                principal = fake.an<IPrincipal>();
+                principal.setup(x => x.IsInRole(Arg<string>.Is.Anything)).Return(true);
+
+                spec.change(() => Thread.CurrentPrincipal).to(principal);
+            };
+            Because b = () =>
+                sut.shut_off();
+
+            It should_shut_down = () =>
+                sut.is_off.ShouldBeTrue();
+
+            static IPrincipal principal;
         } 
     }
 }

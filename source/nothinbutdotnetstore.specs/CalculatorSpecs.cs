@@ -82,5 +82,23 @@ namespace nothinbutdotnetstore.specs
 
             static IPrincipal principal;
         } 
+
+        public class when_shutting_off_and_they_are_not_in_the_correct_security_group   : concern
+        {
+            Establish c = () =>
+            {
+                principal = fake.an<IPrincipal>();
+                principal.setup(x => x.IsInRole(Arg<string>.Is.Anything)).Return(false);
+
+                spec.change(() => Thread.CurrentPrincipal).to(principal);
+            };
+            Because b = () =>
+                sut.shut_off();
+
+            It should_shut_down = () =>
+                sut.is_off.ShouldBeFalse();
+
+            static IPrincipal principal;
+        } 
     }
 }

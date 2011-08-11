@@ -5,7 +5,7 @@ namespace nothinbutdotnetstore.web.core
 {
     public class CommandRegistry : IFindCommandsThatCanProcessRequests
     {
-        readonly IEnumerable<IProcessOneSpecificRequest> commands;
+        IEnumerable<IProcessOneSpecificRequest> commands;
         MissingCommandFactory missing_command_factory;
 
         public CommandRegistry(IEnumerable<IProcessOneSpecificRequest> commands, MissingCommandFactory missing_command_factory)

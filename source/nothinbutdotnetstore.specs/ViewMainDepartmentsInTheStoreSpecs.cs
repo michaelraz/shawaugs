@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using developwithpassion.specifications.extensions;
+﻿using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
 using Machine.Specifications;
+using nothinbutdotnetstore.web.application;
+using nothinbutdotnetstore.web.application.catalogbrowsing;
 using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.specs
@@ -26,28 +26,11 @@ namespace nothinbutdotnetstore.specs
             Because b = () =>
                 sut.process(request);
 
-            It should_ask_the_department_repository_for_a_department_iterator = () =>
-                department_repository.received(x => x.get_departments_for(request));
+            It should_ask_the_department_repository_for_the_main_departments = () =>
+                department_repository.received(x => x.get_the_main_departments_in_the_store());
 
             static IContainRequestInformation request;
             static IReturnDepartments department_repository;
-        }
-    }
-
-    interface IReturnDepartments
-    {
-        IEnumerator<Department> get_departments_for(IContainRequestInformation request);
-    }
-
-    class Department
-    {
-    }
-
-    public class ViewMainDepartmentsInTheStore : IProcessAnApplicationBehaviour
-    {
-        public void process(IContainRequestInformation request)
-        {
-            throw new NotImplementedException();
         }
     }
 }

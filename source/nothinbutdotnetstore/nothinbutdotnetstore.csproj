@@ -79,6 +79,9 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="MessageGenerator.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewMainDepartmentsInTheStore.cs" />
+    <Compile Include="web\application\Department.cs" />
+    <Compile Include="web\application\IReturnDepartments.cs" />
     <Compile Include="web\core\IProcessAnApplicationBehaviour .cs" />
     <Compile Include="web\core\RequestCommand.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
@@ -92,9 +95,7 @@
     <Compile Include="web\core\ICreateRequestsTheFrontControllerCanProcess.cs" />
     <Compile Include="web\core\RequestSpecification.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="web\application\catalogbrowsing\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

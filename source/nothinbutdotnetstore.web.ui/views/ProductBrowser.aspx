@@ -2,6 +2,7 @@
 <%@ Page Language="c#" AutoEventWireup="true" 
 Inherits="nothinbutdotnetstore.web.ui.views.ProductBrowser"
 CodeFile="ProductBrowser.aspx.cs" MasterPageFile="Store.master" %>
+<%@ Import Namespace="nothinbutdotnetstore.web.application" %>
 
 <asp:Content ID="content" runat="server" ContentPlaceHolderID="childContentPlaceHolder">
     <form></form>
@@ -17,7 +18,8 @@ CodeFile="ProductBrowser.aspx.cs" MasterPageFile="Store.master" %>
                         <th></th>
                     </tr>
                 </thead>
-                <%-- for each product--%>
+            <% foreach (var product in ((IEnumerable<Product>)this.Context.Items["blah"]))
+               {%>
         <tr class="nonShadedRow">                    
             <td class="ListItem">                    
                 <a href='#'>Product Name</a>
@@ -29,6 +31,7 @@ CodeFile="ProductBrowser.aspx.cs" MasterPageFile="Store.master" %>
             <td><input type="button" value="Add To cart"/></td>
 
         </tr>
+         <% } %>
     	</table>	
 								<table>
 									<tr>

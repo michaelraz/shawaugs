@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace nothinbutdotnetstore.web.application.stubs
@@ -7,12 +8,12 @@ namespace nothinbutdotnetstore.web.application.stubs
     {
         public IEnumerable<Department> get_the_main_departments_in_the_store()
         {
-            return Enumerable.Range(1, 100).Select(x => new Department {name = x.ToString("Department 0")});
+            return Enumerable.Range(1, 100).Select(x => new Department{name = x.ToString("Department 0")});
         }
 
         public IEnumerable<Department> get_the_departments_in(Department parent_department)
         {
-            return Enumerable.Range(1, 100).Select(x => new Department {name = x.ToString("Sub Department 0")});
+            throw new NotImplementedException();
         }
     }
 }

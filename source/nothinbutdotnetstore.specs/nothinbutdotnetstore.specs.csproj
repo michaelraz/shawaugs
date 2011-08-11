@@ -115,6 +115,7 @@
     <Compile Include="RawHandlerspecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />
     <Compile Include="ViewMainDepartmentsInTheStoreSpecs.cs" />
+    <Compile Include="ViewProductsForDepartmentSpecs.cs" />
     <Compile Include="ViewTheDepartmentsInADepartmentSpecs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

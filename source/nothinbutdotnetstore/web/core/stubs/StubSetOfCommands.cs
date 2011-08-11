@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Web;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
 
 namespace nothinbutdotnetstore.web.core.stubs
@@ -13,8 +14,8 @@ namespace nothinbutdotnetstore.web.core.stubs
 
         public IEnumerator<IProcessOneSpecificRequest> GetEnumerator()
         {
-            yield return new RequestCommand(x => true,
-                                            new ViewTheDepartmentsInADepartment());
+            //yield return new RequestCommand(x => HttpContext.Current.Request.Path., new ViewProductsForDepartment());
+            yield return new RequestCommand(x => true, new ViewProductsForDepartment());
         }
     }
 }

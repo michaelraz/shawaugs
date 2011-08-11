@@ -10,7 +10,7 @@ CodeFile="DepartmentBrowser.aspx.cs"
             <% foreach (var department in ((IEnumerable<Department>)this.Context.Items["blah"]))
                {%>
               <tr class="ListItem">
-               <td><a href="#"><%= department.name %></a></td>
+               <td><a href="/subDepartment.shaw"><%= department.name %></a></td>
            	  </tr>        
               <% } %>
       	    </table>            

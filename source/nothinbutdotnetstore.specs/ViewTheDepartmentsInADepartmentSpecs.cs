@@ -8,11 +8,11 @@
 
 namespace nothinbutdotnetstore.specs
 {  
-    [Subject(typeof(ViewRelatedDepartmentsInTheStore))]  
-    public class ViewRelatedDepartmentsInTheStoreSpecs
+    [Subject(typeof(ViewTheDepartmentsInADepartment))]  
+    public class ViewTheDepartmentsInADepartmentSpecs
     {
         public abstract class concern : Observes<IProcessAnApplicationBehaviour,
-                                            ViewRelatedDepartmentsInTheStore>
+                                            ViewTheDepartmentsInADepartment>
         {
         
         }
@@ -24,11 +24,14 @@ namespace nothinbutdotnetstore.specs
             {
                 view_engine = depends.on<IRenderReports>();
                 department_repository = depends.on<IReturnDepartments>();
-                related_departments = new List<Department> { new Department() };
-                parent_department = fake.an<Department>();
-                department_repository.setup(x => x.get_related_departments_of_a_department(parent_department)).Return(related_departments);
-
                 request = fake.an<IContainRequestInformation>();
+                parent_department = fake.an<Department>();
+
+                related_departments = new List<Department> { new Department() };
+
+                request.setup(x => x.map<Department>()).Return(parent_department);
+                department_repository.setup(x => x.get_the_departments_in(parent_department)).Return(related_departments);
+
             };
 
             Because b = () =>

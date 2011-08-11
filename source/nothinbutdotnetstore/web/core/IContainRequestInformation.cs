@@ -1,7 +1,7 @@
 ﻿namespace nothinbutdotnetstore.web.core
 {
-    public interface IContainRequestInformation 
+    public interface IContainRequestInformation
     {
-         
+        InputModel map<InputModel>();
     }
 }

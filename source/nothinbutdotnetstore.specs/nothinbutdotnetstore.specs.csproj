@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="CalculatorSpecs.cs" />
     <Compile Include="CommandRegistrySpecs.cs" />
+    <Compile Include="CommandSpecs.cs" />
     <Compile Include="FrontControllerSpecs.cs" />
     <Compile Include="RawHandlerspecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />

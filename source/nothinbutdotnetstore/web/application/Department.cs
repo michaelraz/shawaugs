@@ -1,6 +1,6 @@
 namespace nothinbutdotnetstore.web.application
 {
-    class Department
+    public class Department
     {
     }
 }

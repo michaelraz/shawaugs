@@ -79,7 +79,7 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="MessageGenerator.cs" />
-    <Compile Include="web\application\catalogbrowsing\BehaviorCommand.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewReport.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewMainDepartmentsInTheStore.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewProductsForDepartment.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheDepartmentsInADepartment.cs" />

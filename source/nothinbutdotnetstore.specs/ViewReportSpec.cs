@@ -1,18 +1,17 @@
-using System.Collections.Generic;
+using Machine.Specifications;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
-using Machine.Specifications;
 using nothinbutdotnetstore.web.application;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
 using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.specs
 {
-    [Subject(typeof(BehaviorCommand<,>))]
-    public class BehaviorCommandSpec<ModelType, ResponseType>
+    [Subject(typeof(ViewReport<>))]
+    public class ViewReportSpec<InputModel, ReportModel>
     {
         public abstract class concern : Observes<IProcessAnApplicationBehaviour,
-                                            BehaviorCommand<ModelType, ResponseType>>
+                                            ViewReport<ReportModel>>
         {
         }
 
@@ -21,12 +20,11 @@ namespace nothinbutdotnetstore.specs
             Establish c = () =>
             {
                 view_engine = depends.on<IRenderReports>();
-                query_factory = depends.on<IQueryFactory>();
-                the_query = fake.an<IQuery<ModelType, ResponseType>>();
-                ResponseType repository = default(ResponseType);
+                request = fake.an<IContainRequestInformation>();
 
-                query_factory.setup(x=>x.create<ModelType, ResponseType>()).Return(the_query);
-                the_query.setup(x=>x.execute(model_type)).Return((ResponseType) repository);
+                the_query = fake.an<IQuery<ReportModel>>();
+                var repository = default(ReportModel);
+
             };
 
             Because b = () =>
@@ -37,10 +35,9 @@ namespace nothinbutdotnetstore.specs
 
             static IContainRequestInformation request;
             static IRenderReports view_engine;
-            static IQueryFactory query_factory;
-            static IQuery<ModelType, ResponseType> the_query;
-            static ModelType model_type;
-            static ResponseType repository;
+            static IQuery<ReportModel> the_query;
+            static InputModel model_type;
+            static ReportModel repository;
         }
     }
 }

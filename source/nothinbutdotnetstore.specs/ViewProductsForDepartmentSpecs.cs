@@ -16,7 +16,6 @@ namespace nothinbutdotnetstore.specs
         
         }
 
-   
         public class when_process_is_executed : concern
         {
             Establish c = () =>

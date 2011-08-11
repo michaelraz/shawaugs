@@ -1,5 +1,4 @@
-﻿using System;
-using nothinbutdotnetstore.web.application.stubs;
+﻿using nothinbutdotnetstore.web.application.stubs;
 using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.web.application.catalogbrowsing
@@ -8,6 +7,7 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
     {
         IRenderReports view_engine;
         IReturnProducts product_repository;
+
         public ViewProductsForDepartment(IRenderReports view_engine, IReturnProducts product_repo)
         {
             this.product_repository = product_repo;
@@ -17,8 +17,8 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
         public ViewProductsForDepartment()
             : this(Stub.of<StubReportEngine>(), Stub.of<StubProductRepository>())
         {
-            
         }
+
         public void process(IContainRequestInformation request)
         {
             view_engine.render(product_repository.get_the_products_of(request.map<Department>()));

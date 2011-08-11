@@ -16,7 +16,7 @@ namespace nothinbutdotnetstore.specs
         {
         }
 
-        public class when_processing_a_request<ModelType, ResponseType> : concern
+        public class when_processing_a_request : concern
         {
             Establish c = () =>
             {

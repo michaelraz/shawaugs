@@ -80,6 +80,7 @@
     <Compile Include="Calculator.cs" />
     <Compile Include="MessageGenerator.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewMainDepartmentsInTheStore.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewRelatedDepartmentsInTheStore.cs" />
     <Compile Include="web\application\Department.cs" />
     <Compile Include="web\application\IRenderReports.cs" />
     <Compile Include="web\application\IReturnDepartments.cs" />

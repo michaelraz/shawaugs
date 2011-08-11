@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using nothinbutdotnetstore.web.core.stubs;
 
 namespace nothinbutdotnetstore.web.core
 {
@@ -6,6 +7,10 @@ namespace nothinbutdotnetstore.web.core
     {
         readonly IProcessWebRequests front_controller;
         readonly ICreateRequestsTheFrontControllerCanProcess request_mapper;
+
+        public RawHandler():this(new FrontController(),Stub.of<StubRequestMapper>())
+        {
+        }
 
         public RawHandler(IProcessWebRequests front_controller, ICreateRequestsTheFrontControllerCanProcess request_mapper)
         {

@@ -1,3 +1,4 @@
+using nothinbutdotnetstore.web.application.stubs;
 using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.web.application.catalogbrowsing
@@ -5,15 +6,22 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
     public class ViewMainDepartmentsInTheStore : IProcessAnApplicationBehaviour
     {
         IReturnDepartments department_repository;
+        IRenderReports view_engine;
 
-        public ViewMainDepartmentsInTheStore(IReturnDepartments department_repository)
+        public ViewMainDepartmentsInTheStore(IReturnDepartments department_repository, IRenderReports view_engine)
         {
             this.department_repository = department_repository;
+            this.view_engine = view_engine;
+        }
+
+        public ViewMainDepartmentsInTheStore():this(Stub.of<StubDepartmentRepository>(),
+            Stub.of<StubReportEngine>())
+        {
         }
 
         public void process(IContainRequestInformation request)
         {
-            department_repository.get_the_main_departments_in_the_store();
+            view_engine.render(department_repository.get_the_main_departments_in_the_store());
         }
     }
 }

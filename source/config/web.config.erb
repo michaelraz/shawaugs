@@ -17,11 +17,10 @@
     <pages autoEventWireup="false">
     </pages>
     <authentication mode="Windows"/>
-    <!--<httpHandlers>
-      <add path=""
+    <httpHandlers>
+      <add path="*.shaw"
         verb="*"
-        type=""/>
-        </httpHandlers>-->
+        type="nothinbutdotnetstore.web.core.RawHandler,nothinbutdotnetstore"/> </httpHandlers>
    </system.web>
   <system.webServer>
   </system.webServer>

@@ -79,6 +79,8 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="MessageGenerator.cs" />
+    <Compile Include="web\application\catalogbrowsing\CatalogBrowsingController.cs" />
+    <Compile Include="web\application\catalogbrowsing\DispatchingCommand.cs" />
     <Compile Include="web\application\catalogbrowsing\TimingProxy.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewReport.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewMainDepartmentsInTheStore.cs" />

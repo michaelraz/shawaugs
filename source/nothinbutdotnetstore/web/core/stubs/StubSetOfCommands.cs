@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using nothinbutdotnetstore.web.application;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
@@ -15,10 +16,7 @@ namespace nothinbutdotnetstore.web.core.stubs
 
         public IEnumerator<IProcessOneSpecificRequest> GetEnumerator()
         {
-            yield return
-                new RequestCommand(x => true, new TimingProxy(new ViewReport<IEnumerable<Department>>(new ReportEngine(),
-                                                                                                new MainDepartments()),
-                                                              Stub.of<StubLogger>()));
+            throw new NotImplementedException();
         }
 
         public class MainDepartments : IQuery<IEnumerable<Department>>

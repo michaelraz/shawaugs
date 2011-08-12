@@ -9,9 +9,6 @@
             this.command_registry = command_registry;
         }
 
-        public FrontController():this(new CommandRegistry())
-        {
-        }
 
         public void process(IContainRequestInformation the_request)
         {

@@ -14,10 +14,6 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
             this.view_engine = view_engine;
         }
 
-        public ViewProductsForDepartment()
-            : this(new ReportEngine(), Stub.of<StubProductRepository>())
-        {
-        }
 
         public void process(IContainRequestInformation request)
         {

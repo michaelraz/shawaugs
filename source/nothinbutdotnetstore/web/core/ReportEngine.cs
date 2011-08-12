@@ -14,10 +14,6 @@ namespace nothinbutdotnetstore.web.core
             this.current_context_resolver = current_context_resolver;
         }
 
-        public ReportEngine():this(new TemplateRegistry(),() => HttpContext.Current)
-        {
-        }
-
         public void render<ReportModel>(ReportModel report_model)
         {
             template_registry.get_template_for(report_model).ProcessRequest(current_context_resolver());

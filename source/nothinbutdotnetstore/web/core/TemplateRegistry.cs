@@ -8,11 +8,6 @@ namespace nothinbutdotnetstore.web.core
         PageFactory page_factory;
         IProvidePathsToViews path_registry;
 
-        public TemplateRegistry():this(BuildManager.CreateInstanceFromVirtualPath,
-            Stub.of<StubPathRegistry>())
-        {
-        }
-
         public TemplateRegistry(PageFactory page_factory, IProvidePathsToViews path_registry)
         {
             this.page_factory = page_factory;

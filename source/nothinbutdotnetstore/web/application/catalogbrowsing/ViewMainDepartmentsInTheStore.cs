@@ -1,4 +1,3 @@
-using nothinbutdotnetstore.web.application.stubs;
 using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.web.application.catalogbrowsing
@@ -12,11 +11,6 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
         {
             this.department_repository = department_repository;
             this.view_engine = view_engine;
-        }
-
-        public ViewMainDepartmentsInTheStore():this(Stub.of<StubDepartmentRepository>(),
-            new ReportEngine())
-        {
         }
 
         public void process(IContainRequestInformation request)

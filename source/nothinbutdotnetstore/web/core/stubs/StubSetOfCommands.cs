@@ -16,8 +16,8 @@ namespace nothinbutdotnetstore.web.core.stubs
         public IEnumerator<IProcessOneSpecificRequest> GetEnumerator()
         {
             yield return
-                new RequestCommand(x => true, new ViewReport<IEnumerable<Product>>(Stub.of<StubReportEngine>(),
-                                                                                      new ProductsInADepartment()));
+                new RequestCommand(x => true, new TimingProxy(new ViewReport<IEnumerable<Product>>(Stub.of<StubReportEngine>(),
+                                                                                      new ProductsInADepartment()), Stub.of<StubLogger>()));
 
         }
 

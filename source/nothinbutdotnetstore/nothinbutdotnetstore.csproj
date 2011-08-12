@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="MessageGenerator.cs" />
+    <Compile Include="web\application\catalogbrowsing\TimingProxy.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewReport.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewMainDepartmentsInTheStore.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewProductsForDepartment.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="web\core\ICreateRequestsTheFrontControllerCanProcess.cs" />
     <Compile Include="web\core\RequestSpecification.cs" />
     <Compile Include="web\core\Stub.cs" />
+    <Compile Include="web\core\stubs\StubLogger.cs" />
     <Compile Include="web\core\stubs\StubMissingCommand.cs" />
     <Compile Include="web\core\stubs\StubRequestMapper.cs" />
     <Compile Include="web\core\stubs\StubSetOfCommands.cs" />

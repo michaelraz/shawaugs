@@ -1,3 +1,4 @@
+using System;
 using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.web.application.catalogbrowsing
@@ -23,4 +24,10 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
     {
         ReportModel run(IContainRequestInformation request);
     }
+
+	public interface ILogger
+	{
+		void Log(string message);
+		void Log(string message, params object[] args);
+	}
 }

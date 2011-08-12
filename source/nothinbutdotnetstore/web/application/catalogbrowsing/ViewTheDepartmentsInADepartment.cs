@@ -14,7 +14,7 @@ namespace nothinbutdotnetstore.web.application.catalogbrowsing
             this.department_repository = department_repository;
         }
 
-        public ViewTheDepartmentsInADepartment():this(Stub.of<StubReportEngine>(),
+        public ViewTheDepartmentsInADepartment():this(new ReportEngine(),
             Stub.of<StubDepartmentRepository>())
         {
         }

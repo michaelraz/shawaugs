@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ReportEngineSpecs.cs" />
+    <Compile Include="TemplateRegistrySpecs.cs" />
     <Compile Include="TimingProxySpec.cs" />
     <Compile Include="ViewReportSpec.cs" />
     <Compile Include="CalculatorSpecs.cs" />

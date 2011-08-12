@@ -93,9 +93,14 @@
     <Compile Include="web\application\Product.cs" />
     <Compile Include="web\application\stubs\StubDepartmentRepository.cs" />
     <Compile Include="web\application\stubs\StubProductRepository.cs" />
-    <Compile Include="web\application\stubs\StubReportEngine.cs" />
+    <Compile Include="web\core\GetTheCurrentHttpContext.cs" />
     <Compile Include="web\core\IProcessAnApplicationBehaviour .cs" />
+    <Compile Include="web\core\IProvidePathsToViews.cs" />
+    <Compile Include="web\core\IReportTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="web\core\IResponse.cs" />
+    <Compile Include="web\core\PageFactory.cs" />
     <Compile Include="web\core\ReportEngine.cs" />
     <Compile Include="web\core\RequestCommand.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
@@ -111,8 +116,10 @@
     <Compile Include="web\core\Stub.cs" />
     <Compile Include="web\core\stubs\StubLogger.cs" />
     <Compile Include="web\core\stubs\StubMissingCommand.cs" />
+    <Compile Include="web\core\stubs\StubPathRegistry.cs" />
     <Compile Include="web\core\stubs\StubRequestMapper.cs" />
     <Compile Include="web\core\stubs\StubSetOfCommands.cs" />
+    <Compile Include="web\core\TemplateRegistry.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

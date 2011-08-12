@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using nothinbutdotnetstore.web.application;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
 using nothinbutdotnetstore.web.application.stubs;
@@ -17,9 +16,9 @@ namespace nothinbutdotnetstore.web.core.stubs
         public IEnumerator<IProcessOneSpecificRequest> GetEnumerator()
         {
             yield return
-                new RequestCommand(x => true, new TimingProxy(new ViewReport<IEnumerable<Product>>(Stub.of<StubReportEngine>(),
-                                                                                      new ProductsInADepartment()), Stub.of<StubLogger>()));
-
+                new RequestCommand(x => true, new TimingProxy(new ViewReport<IEnumerable<Department>>(new ReportEngine(),
+                                                                                                new MainDepartments()),
+                                                              Stub.of<StubLogger>()));
         }
 
         public class MainDepartments : IQuery<IEnumerable<Department>>

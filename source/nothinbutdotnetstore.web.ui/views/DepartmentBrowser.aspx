@@ -7,10 +7,10 @@ CodeFile="DepartmentBrowser.aspx.cs"
 <asp:Content ID="content" runat="server" ContentPlaceHolderID="childContentPlaceHolder">
     <p class="ListHead">Select An Department</p>
             <table>            
-            <% foreach (var department in ((IEnumerable<Department>)this.Context.Items["blah"]))
+            <% foreach (var department in this.model)
                {%>
               <tr class="ListItem">
-               <td><a href="/subDepartment.shaw"><%= department.name %></a></td>
+               <td><a href="/blah.shaw"><%= department.name %></a></td>
            	  </tr>        
               <% } %>
       	    </table>            

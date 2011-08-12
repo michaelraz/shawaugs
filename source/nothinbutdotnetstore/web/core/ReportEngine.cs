@@ -1,22 +1,26 @@
-using System;
+using System.Web;
 using nothinbutdotnetstore.web.application;
 
 namespace nothinbutdotnetstore.web.core
 {
-	public class ReportEngine : IRenderReports
-	{
-	    readonly IResponse response;
-	    readonly IProvideReportTemplates template_registry;
+    public class ReportEngine : IRenderReports
+    {
+        readonly IProvideReportTemplates template_registry;
+        readonly GetTheCurrentHttpContext current_context_resolver;
 
-	    public ReportEngine(IResponse response, IProvideReportTemplates template_registry)
-	    {
-	        this.response = response;
-	        this.template_registry = template_registry;
-	    }
+        public ReportEngine(IProvideReportTemplates template_registry, GetTheCurrentHttpContext current_context_resolver)
+        {
+            this.template_registry = template_registry;
+            this.current_context_resolver = current_context_resolver;
+        }
 
-	    public void render<ReportModel>(ReportModel report_model)
-	    {
-	        response.send_content(template_registry.get_template_for<ReportModel>().merge(report_model));
-	    }
-	}
+        public ReportEngine():this(new TemplateRegistry(),() => HttpContext.Current)
+        {
+        }
+
+        public void render<ReportModel>(ReportModel report_model)
+        {
+            template_registry.get_template_for(report_model).ProcessRequest(current_context_resolver());
+        }
+    }
 }

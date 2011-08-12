@@ -1,6 +1,8 @@
+using System.Web;
 using Machine.Specifications;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
+using nothinbutdotnetstore.specs.utility;
 using nothinbutdotnetstore.web.application;
 using nothinbutdotnetstore.web.core;
 
@@ -17,30 +19,26 @@ namespace nothinbutdotnetstore.specs
         {
             Establish c = () =>
             {
+                the_current_context = ObjectFactory.create_http_context();
                 template_registry = depends.on<IProvideReportTemplates>();
-                response = depends.on<IResponse>();
+                depends.on<GetTheCurrentHttpContext>(() => the_current_context);
                 template = fake.an<IReportTemplate<OurModel>>();
-                report = fake.an<IReport>();
                 the_model = new OurModel();
 
-                template_registry.setup(reg => reg.get_template_for<OurModel>()).Return(template);
-                template.setup(t => t.merge(the_model)).Return(report);
+                template_registry.setup(reg => reg.get_template_for(the_model)).Return(template);
             };
 
             Because b = () =>
                 sut.render(the_model);
 
-            It should_merge_template_with_data = () =>
-                template.received(x => x.merge(the_model));
+            It should_tell_the_template_to_process_using_the_current_context = () =>
+                template.received(x => x.ProcessRequest(the_current_context));
 
-            It should_supply_report_to_response = () =>
-                response.received(x => x.send_content(report));
 
             static OurModel the_model;
             static IReportTemplate<OurModel> template;
-            static IReport report;
             static IProvideReportTemplates template_registry;
-            static IResponse response;
+            static HttpContext the_current_context;
         }
     }
 }

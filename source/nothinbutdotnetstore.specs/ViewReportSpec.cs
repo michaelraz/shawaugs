@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Machine.Specifications;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
@@ -25,7 +24,7 @@ namespace nothinbutdotnetstore.specs
                 request = fake.an<IContainRequestInformation>();
                 the_model = new OurModel();
 
-                the_query.setup(x => x.run( request)).Return(the_model);
+                the_query.setup(x => x.run(request)).Return(the_model);
             };
 
             Because b = () =>

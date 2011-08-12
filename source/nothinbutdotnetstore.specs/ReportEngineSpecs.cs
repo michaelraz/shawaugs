@@ -43,23 +43,4 @@ namespace nothinbutdotnetstore.specs
             static IResponse response;
         }
     }
-
-    interface IResponse
-    {
-        void send_content(IReport report);
-    }
-
-    interface IProvideReportTemplates
-    {
-        IReportTemplate<Model> get_template_for<Model>();
-    }
-
-    public interface IReportTemplate<Model>
-    {
-        IReport merge(Model the_model);
-    }
-
-    public interface IReport
-    {
-    }
 }

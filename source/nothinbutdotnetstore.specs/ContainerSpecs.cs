@@ -1,4 +1,5 @@
-﻿using Machine.Specifications;
+﻿using developwithpassion.specifications.extensions;
+using Machine.Specifications;
 using developwithpassion.specifications.rhinomocks;
 using nothinbutdotnetstore.infrastructure.containers;
 
@@ -29,6 +30,30 @@ namespace nothinbutdotnetstore.specs
             static IFetchDependencies result;
             static IFetchDependencies the_container_facade;
             static ContainerFacadeResolver resolver;
+        }
+
+        public class when_asked_for_an_object : concern
+        {
+            Establish c = () =>
+            {
+                the_container_facade = fake.an<IFetchDependencies>();
+                resolver = () => the_container_facade;
+                spec.change(() => Container.facade_resolver).to(resolver);
+            };
+
+            Because b = () =>
+                Container.fetch.an<IMyObject>();
+
+            It should_return_an_instance = () =>
+                result.ShouldBeAn<IMyObject>();
+
+            static IMyObject result;
+            static IFetchDependencies the_container_facade;
+            static ContainerFacadeResolver resolver;
+        }
+
+        interface IMyObject
+        {
         }
     }
 }
